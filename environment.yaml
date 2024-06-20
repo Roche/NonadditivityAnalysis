@@ -1,0 +1,9 @@
+name: nonadditivity
+channels:
+  - conda-forge
+dependencies:
+    # Base depends
+  - python > 3.9, < 3.12
+  - pip
+  - pip:
+    - poetry >= 1.2.0
