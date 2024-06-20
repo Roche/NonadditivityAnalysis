@@ -1,0 +1,4 @@
+Compound1,Compound2,Compound3,Compound4,SMILES1,SMILES2,SMILES3,SMILES4,Prop_Cpd1,Prop_Cpd2,Prop_Cpd3,Prop_Cpd4,Transformation1,Transformation2,Property,Series,Nonadditivity,Theo_Quantile,Circle_ID
+ID1,ID2,ID4,ID3,CC=Cc1ccc(C)nc1,CC(F)=Cc1ccc(C)nc1,CC(F)=C(Cl)c1ccc(C)nc1,CC=C(Cl)c1ccc(C)nc1,4.5,4.2,5.9,3.7,[*:1][H]>>[*:1]F,[*:1][H]>>[*:1]Cl,TEST_PCHEMBL_VALUE,,2.5,0.8193286198336103,ID1_ID2_ID4_ID3_TEST_PCHEMBL_VALUE
+ID4,ID1,ID5,ID6,CC(F)=C(Cl)c1ccc(C)nc1,CC=Cc1ccc(C)nc1,CC=Cc1cnc(C)c(O)c1,CC(F)=C(Cl)c1cnc(C)c(O)c1,5.9,4.5,3.4,4.0,[*:1]C(Cl)=C(C)F>>[*:1]C=CC,[*:1][H]>>[*:1]O,TEST_PCHEMBL_VALUE,,0.8000000000000007,-0.8193286198336103,ID4_ID1_ID5_ID6_TEST_PCHEMBL_VALUE
+ID5,ID6,ID4,ID1,CC=Cc1cnc(C)c(O)c1,CC(F)=C(Cl)c1cnc(C)c(O)c1,CC(F)=C(Cl)c1ccc(C)nc1,CC=Cc1ccc(C)nc1,3.4,4.0,5.9,4.5,[*:1]C=CC>>[*:1]C(Cl)=C(C)F,[*:1]O>>[*:1][H],TEST_PCHEMBL_VALUE2,,0.8000000000000007,0.0,ID5_ID6_ID4_ID1_TEST_PCHEMBL_VALUE2

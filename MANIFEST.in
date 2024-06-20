@@ -1,0 +1,10 @@
+graft nonadditivity
+prune example
+
+include README.md
+include LICENSE
+include .pre-commit-config.yaml
+include pyproject.toml
+include poetry.lock
+
+global-exclude *.py[cod] __pycache__ *.so
