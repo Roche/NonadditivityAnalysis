@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Any
 
 import pytest
@@ -6,9 +7,9 @@ from nonadditivity.utils.commandline import InputOptions
 
 
 @pytest.fixture()
-def input_option_arguments() -> dict[str, Any]:
+def input_option_arguments(paths: dict[str, Path]) -> dict[str, Any]:
     return {
-        "infile_": "tests/_test_files/test_pchembl_input.txt",
+        "infile_": paths["test_input"],
         "update_": True,
         "max_heavy_": 32,
         "no_chiral_": True,
@@ -27,9 +28,9 @@ def input_option_arguments() -> dict[str, Any]:
 
 
 @pytest.fixture()
-def input_option_keyword_arguments_nounits() -> dict[str, Any]:
+def input_option_keyword_arguments_nounits(paths: dict[str, Path]) -> dict[str, Any]:
     return {
-        "infile_": "tests/_test_files/test_pchembl_input.txt",
+        "infile_": paths["test_input"],
         "update_": True,
         "max_heavy_": 32,
         "no_chiral_": True,
@@ -64,7 +65,7 @@ def cli_input_arguments() -> list[str]:
 
 
 @pytest.fixture()
-def input_options_update(paths: dict[str, str]) -> InputOptions:
+def input_options_update(paths: dict[str, Path]) -> InputOptions:
     return InputOptions(
         infile_=paths["test_input"],
         update_=True,
@@ -85,7 +86,7 @@ def input_options_update(paths: dict[str, str]) -> InputOptions:
 
 
 @pytest.fixture()
-def input_options(paths: dict[str, str]) -> InputOptions:
+def input_options(paths: dict[str, Path]) -> InputOptions:
     return InputOptions(
         infile_=paths["test_input"],
         update_=False,
@@ -106,7 +107,7 @@ def input_options(paths: dict[str, str]) -> InputOptions:
 
 
 @pytest.fixture()
-def input_options_multiprops(paths: dict[str, str]) -> InputOptions:
+def input_options_multiprops(paths: dict[str, Path]) -> InputOptions:
     return InputOptions(
         infile_=paths["test_input"],
         update_=False,
@@ -130,7 +131,7 @@ def input_options_multiprops(paths: dict[str, str]) -> InputOptions:
 
 
 @pytest.fixture()
-def input_options_multiprops_censored(paths: dict[str, str]) -> InputOptions:
+def input_options_multiprops_censored(paths: dict[str, Path]) -> InputOptions:
     return InputOptions(
         infile_=paths["test_input"],
         update_=False,
