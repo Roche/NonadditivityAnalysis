@@ -54,6 +54,7 @@ def test_input_options_init(
     input_option_arguments: dict[str, Any],
     input_test_values: dict[str, str | int | bool],
     input_option_keyword_arguments_nounits: dict[str, Any],
+    tmp_path: Path,
 ) -> None:
     """Test init input options.
 
@@ -61,6 +62,7 @@ def test_input_options_init(
         input_option_arguments (dict[str, Any]): input options
         input_test_values (dict[str, str  |  int  |  bool]): input options
         input_option_keyword_arguments_nounits (dict[str, Any]): input options.
+        tmp_path (Path): pytest magic.
     """
     io = InputOptions(**input_option_keyword_arguments_nounits)
     for key, value in input_test_values.items():
@@ -79,7 +81,7 @@ def test_input_options_init(
             canonicalize_=False,
             delimiter_="tab",
             include_censored_=False,
-            directory_=Path("tests/_directory"),
+            directory_=tmp_path,
             series_column_="test_series",
             classify_=False,
             property_columns_=("test_propery",),
@@ -98,7 +100,7 @@ def test_input_options_init(
             classify_=False,
             canonicalize_=False,
             include_censored_=False,
-            directory_=Path("tests/_directory"),
+            directory_=tmp_path,
             series_column_="test_series",
             property_columns_=("test_propery", "ueppa"),  # type: ignore
             units_=("M",),
@@ -117,11 +119,10 @@ def test_input_options_init(
             delimiter_="tab",
             canonicalize_=False,
             include_censored_=False,
-            directory_=Path("tests/_directory"),
+            directory_=tmp_path,
             series_column_="test_series",
             property_columns_=("test_propery", "ueppa"),  # type: ignore
             units_=("M",),
             verbose_="ASDF",  # type: ignore
             log_file_=None,
         )
-    os.rmdir(os.path.abspath(__file__ + "/../../../_directory"))
