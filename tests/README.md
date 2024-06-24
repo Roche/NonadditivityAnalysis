@@ -8,7 +8,7 @@ It is based on the [pytest](https://docs.pytest.org/) framework.
 
 
 The tests themselves are written in [this](.) directory. Files needed or temporarily
-created by the teses are in the [test_files](test_files) folder. The
+created by the teses are in the [_test_files](_test_files) folder. The
 [Fixtures](https://docs.pytest.org/en/6.2.x/fixture.html#fixture) used for the tests are
 stored in the [fixtures](fixtures) folder and imported into the [conftest.py](conftest.py)
 file. Pytest recognizes the fixtures automatically, so one does not need to import them in the test
