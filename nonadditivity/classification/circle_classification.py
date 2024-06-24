@@ -6,14 +6,11 @@ that are not responsible for the ortho or the r group distance classification.
 from __future__ import annotations
 
 from collections.abc import Iterable
-from copy import deepcopy
-from re import sub
 from typing import TYPE_CHECKING
 
 import numpy as np
-from rdkit.Chem import AllChem
 
-from nonadditivity.classification.utils import is_match_unique, is_unique
+from nonadditivity.classification.utils import is_unique
 
 if TYPE_CHECKING:
     from nonadditivity.classification import Compound, Transformation
