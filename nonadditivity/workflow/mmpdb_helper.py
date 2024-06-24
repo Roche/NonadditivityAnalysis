@@ -51,7 +51,7 @@ def _run_mmpdb_command(command: str) -> int:
             return returncode
         if line.isspace():
             continue
-        logger.warning(line)
+        logger.info(line)
     return 0
 
 
@@ -68,7 +68,7 @@ def run_mmpdb_fragment(
         structure_file (Path): path to input structure file
     """
     command = (
-        f"mmpdb fragment --num-jobs {cpu_count()} --delimiter tab "
+        f"mmpdb fragment --num-jobs {cpu_count() -2 } --delimiter tab "
         f"--output {fragments_file.as_posix()} {structure_file.as_posix()} "
     )
     if cache:
@@ -99,7 +99,6 @@ def run_mmpdb_index(
         f"mmpdb index --out csv --symmetric --output {mmp_outputfile.as_posix()} "
         f"--max-variable-heavies {max_variable_heavies} {fragments_file.as_posix()}"
     )
-    print(command)
     if _run_mmpdb_command(command=command) != 0:
         raise IndexingError(
             "Something happened during mmpdb indexing. Please check the logs!",
