@@ -1,5 +1,8 @@
 # Nonadditivity analysis
 
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+![Tests](https://github.com/ChristianKramer/NonadditivityAnalysis/actions/workflows/CI.yml/badge.svg)
+
 ## Synposis
 
 A program to find key complex patterns in SAR data
@@ -21,7 +24,17 @@ where 3.* == 3.10, 3.11 or 3.12 and <env_name> is the name of your conda environ
 Then use the following command to install the programm.
 
 ```shell
-pip install roche-nonadditivity
+pip install nonadditivity
+```
+### Dev Mode
+
+Install the code in development mode with:
+
+```bash
+$ git clone git+https://github.com/KramerChristian/NonadditivityAnalysis.git
+$ cd NonadditivityAnalysis
+$ pip install poetry
+$ poetry install
 ```
 
 ## How to run the program and get help
