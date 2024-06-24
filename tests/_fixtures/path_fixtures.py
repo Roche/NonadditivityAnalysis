@@ -17,7 +17,7 @@ def paths() -> dict[str, Path]:
         "test_mmp": directory / "test_raw_mmp.csv",
         "test_input": directory / "test_pchembl_input.txt",
         "test_c2c": directory / "test_c2c.csv",
-        "test_c2c_classify": directory / "test_c2c_classify.csv",
+        "test_c2c_classify": directory / "test_c2c.csv",
         "test_c2c_series": directory / "test_c2c_series.csv",
         "test_c2c_mult": directory / "test_c2c_mult.csv",
         "test_c2c_mult_wc": directory / "test_c2c_mult_wc.csv",
