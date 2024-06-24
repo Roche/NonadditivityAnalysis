@@ -157,8 +157,14 @@ def _write_per_compound_file(
         include_censored=include_censored,
         series_column=series_column,
     )
+    additional = (
+        ["fused_ring_indices", "aromatic_indices"]
+        if "fused_ring_indices" in out_dataframe.columns
+        else []
+    )
     out_dataframe = out_dataframe.drop(
         columns=["Neighbor_dict", "RDKit_Molecules"]
+        + additional
         + [f"{col}_Nonadditivities" for col in property_columns],
     )
     out_dataframe = out_dataframe.rename({"Censors": "Property_Censors"})
