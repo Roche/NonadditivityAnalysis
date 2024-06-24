@@ -71,7 +71,7 @@ def _update_per_compound_dataframe(
             ),
         )
         values = []
-        for key in tqdm(per_compound_dataframe.index.to_numpy(), leave=True):
+        for key in tqdm(per_compound_dataframe.index.to_numpy()):
             values.append(compound_dict[key].get_property(compound_property))
         per_compound_dataframe[compound_property_str] = values
 
