@@ -1,10 +1,6 @@
 graft nonadditivity
-prune example
+graft tests
 
-include README.md
-include LICENSE
-include .pre-commit-config.yaml
-include pyproject.toml
-include poetry.lock
+global-exclude *.py[cod] __pycache__ *.so *.dylib .DS_Store *.gpickle
 
-global-exclude *.py[cod] __pycache__ *.so
+include README.md LICENSE
