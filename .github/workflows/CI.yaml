@@ -76,4 +76,3 @@ jobs:
     #     PKG_VERSION=$(nonadditivity --version | sed -n -e 's/^.*version //p')
     #     PYPI_VERSION=$(curl https://pypi.org/pypi/nonadditivity/json | jq -r '.version')
     #     if [ $PKG_VERSION > $PYPI_VERSION ]; then poetry publish --build -u $PYPI_UN -p $PYPI_PW ; fi
-
