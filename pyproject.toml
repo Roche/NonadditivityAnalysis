@@ -1,14 +1,15 @@
 [tool.poetry]
-name = "roche-nonadditivity"
+name = "nonadditivity"
 description = "A program to find key complex patterns in SAR data"
-version = "2.1.0"
+version = "2.0.0"
 authors = [
     "Dr. Christian Kramer <christian.kramer@roche.com>",
-    "Niels Maeder <niels.maeder@roche.com>",
+    "Dr. Laura Guasch <laura.guasch@roche.com>",
+    "Niels Maeder <niels.maeder@phys.chem.ethz.ch>",
 ]
 maintainers = [
     "Dr. Laura Guasch <laura.guasch@roche.com>",
-    "Niels Maeder <niels.maeder@roche.com>",
+    "Niels Maeder <niels.maeder@phys.chem.ethz.ch>",
 ]
 license = "LICENSE"
 readme = "README.md"
@@ -27,11 +28,11 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Chemistry",
 ]
 packages = [{ include = "nonadditivity" }]
-repository = "https://code.roche.com/cadd/intern-projects/NonadditivityAnalysis/"
+repository = "https://github.com/Roche/NonadditivityAnalysis"
 
 [tool.poetry.urls]
-"Bug Tracker" = "https://code.roche.com/cadd/intern-projects/NonadditivityAnalysis/issues"
-"Source Code" = "https://code.roche.com/cadd/intern-projects/NonadditivityAnalysis/"
+"Bug Tracker" = "https://github.com/Roche/NonadditivityAnalysis/issues"
+"Source Code" = "https://github.com/Roche/NonadditivityAnalysis/"
 
 [tool.poetry.scripts]
 nonadditivity = "nonadditivity.cli:main"
@@ -53,6 +54,7 @@ pytest-cov = "^4.0.0"
 pre-commit = "^2.20.0"
 ruff = "^0.0.292"
 black = "^23.9.1"
+tox = "^4.14.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -63,13 +65,12 @@ exclude_also = ["if TYPE_CHECKING:"]
 
 [tool.black]
 line-length = 88
-target-version = ['py311']
+target-version = ['py310']
 
 [tool.ruff]
-select = [
+lint.select = [
     "A",   # builtins
     "B",   # bugbear
-    "C90", # mccabe
     "D",   # pydocstyle
     "E",   # pycodestyle error
     "F",   # pyflakes
@@ -79,29 +80,29 @@ select = [
     "RUF", # ruff specific
     "UP",  # pyupgrade
     "W",   # pycodestyle warning
-    "N",
-    "ANN",
-    "C4",
-    "FA",
-    "SIM",
-    "PT",
-    "TCH",
+    "N",   # naming
+    "ANN", # annotations
+    "C4",  #
+    "FA",  # future-annotations
+    "SIM", # simplify
+    "PT",  # pytest-style
+    "TCH", # type-checking
 ]
-ignore = [
+lint.ignore = [
     "B905",    # zip is never used where objects could have different length
     "PLR0911", # too many return statements
     "PLR0913", # too many arguments to function call
     "PLR2004", # magic numbers
-    "PT006",
-    "PT011",
-    "ANN002",
-    "ANN003",
+    "PT006",   # pytest-style
+    "PT011",   # raises too broad
+    "ANN002",  # missing types for *args ok
+    "ANN003",  # missing types for **kwargs ok
     "ANN101",  # self type annoataions
     "ANN401",  # allow any as type hint
 ]
 line-length = 88
-target-version = "py311"
-include = ["nonadditivity", "tests"]
+target-version = "py310"
+# include = ["nonadditivity", "tests"]
 exclude = [
     ".git",
     "__pycache__",
@@ -114,17 +115,47 @@ exclude = [
     ".eggs",
 ]
 fix = true
-fixable = ["I"]
+lint.fixable = ["I"]
 
-[tool.ruff.mccabe]
-max-complexity = 15
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "*/__init__.py" = ["F401"]
 "nonadditivity/classification/classification_classes/circle.py" = ["E501"]
 
-[tool.ruff.pycodestyle]
+[tool.ruff.lint.pycodestyle]
 max-doc-length = 88
 
-[tool.ruff.pydocstyle]
+[tool.ruff.lint.pydocstyle]
 convention = "google"
+
+
+[tool.tox]
+legacy_tox_ini = """
+    [tox]
+    requires >= 4.0
+    env_list =
+        lint
+        py310
+        py311
+        py312
+    labels =
+        test = py310, py311, py312
+        static = lint
+
+    [gh-actions]
+    python =
+        3.10: py310, lint
+        3.11: py311
+        3.12: py312
+
+    [testenv]
+    deps =
+        pytest
+        pytest-cov
+    commands = pytest tests --run-slow --cov=nonadditivity --cov-report=term-missing
+
+    [testenv:lint]
+    basepython = 3.12
+    deps = ruff
+    commands = ruff check tests nonadditivity
+"""
