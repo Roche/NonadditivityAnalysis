@@ -1,6 +1,6 @@
 """Nonadditivity Analysis.
 
-Copyright (c) 2019, F. Hoffmann-La Roche Ltd.
+Copyright (c) 2024, F. Hoffmann-La Roche Ltd.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -46,7 +46,7 @@ from nonadditivity.workflow import (
     write_smiles_id_file,
 )
 
-__version__ = version("roche-nonadditivity")
+__version__ = version("nonadditivity")
 
 rdBase.DisableLog("rdApp.*")  # pylint: disable=I1101
 
