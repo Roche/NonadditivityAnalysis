@@ -1,9 +1,8 @@
 """Handle commanline interface with click.
 
 This file handles all the commandline input parsing for
-the NonadditivityAnalysis package.
+the NonadditivityAnalysis package using click.
 
-Autor: Niels Maeder
 """
 import logging
 import os
@@ -21,8 +20,6 @@ def add_entry_point_options(command: Callable) -> Callable:
     Adds all needed flags to an option
     that can then be run in the command line and parses them into an
     InputOptions file, that does the validity checks for the input.
-
-    The following flags are added to the command.
 
     Args:
         command (Callable): function to add the command line options to.
@@ -202,7 +199,8 @@ def add_entry_point_options(command: Callable) -> Callable:
         type=str,
         help=(
             "File to write all logging info to. "
-            "If none is provided, logging is displayed in commandline."
+            "If none is provided, logging is displayed in commandline. "
+            "It will be placed in the output directory."
         ),
     )
 
@@ -247,7 +245,7 @@ class InputOptions:
         property_columns_: tuple[str, ...],
         units_: tuple[str | None, ...],
         verbose_: int,
-        log_file_: Path | None,
+        log_file_: str | None,
     ) -> None:
         """Create input Option instance with cli arguments.
 
@@ -304,8 +302,8 @@ class InputOptions:
         return self._infile
 
     @infile.setter
-    def infile(self, value: str) -> None:
-        self._infile = Path(value)
+    def infile(self, value: Path) -> None:
+        self._infile = value
 
     @property
     def update(self) -> bool:
@@ -387,8 +385,7 @@ class InputOptions:
     @directory.setter
     def directory(self, value: Path | None) -> None:
         if value is None:
-            value = Path(os.path.dirname(self.infile))
-        value = value.resolve()
+            value = Path(os.path.dirname(self.infile)).resolve()
         if not value.exists():
             os.makedirs(value)
         self._directory = value

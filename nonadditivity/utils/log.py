@@ -1,8 +1,4 @@
-"""Logging submodule for the nonadditivity analysis code.
-
-This is mostly identical to Michael Reutlingers mlpp
-logging module.
-"""
+"""Logging submodule for the nonadditivity analysis code."""
 import logging
 import sys
 from collections.abc import Callable

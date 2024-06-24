@@ -4,3 +4,4 @@
 - [`math.py`](math.py): All mathematical equations needed in the nonadditivity analysis.
 - [`log.py`](log.py): Logging setup.
 - [`types.py`](types.py): File containing some Type aliases for rdit molecules and Atoms.
+- [`errors.py`](errors.py): Custom Exceptions.

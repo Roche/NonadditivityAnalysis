@@ -180,8 +180,7 @@ def get_matches_without_hydrogen(
         molecule (Molecule): molecule to match smarts
 
     Raises:
-        ValueError: Raised if a case occurrs i was not able to think of. pls contact
-        me in case this is raised (niels.maeder@roche.com)
+        ValueError: Raised if a case occurrs that is not covered.
 
     Returns:
         tuple[list[int], ...] | tuple[list[list[int]], ...]: multiple or unique matches
@@ -290,9 +289,6 @@ def get_matches_without_hydrogen(
                 list(m) for m in transformation_matches
             ]
 
-    # if for some other reason something is not matched correctly,
-    # notify me: niels.maeder@roche.com.
-
     newmatch = molecule.GetSubstructMatches(
         Chem.MolFromSmarts(  # type:ignore pylint: disable=E1101
             original_constant_smarts,
@@ -337,8 +333,7 @@ def get_matches_with_hydrogen(
         molecule (Molecule): molecule to match smarts
 
     Raises:
-        ValueError: Raised if a case occurrs i was not able to think of. pls contact
-        me in case this is raised (niels.maeder@roche.com)
+        ValueError: Raised if a case occurrs that is not covered.
 
     Returns:
         tuple[list[int], ...] | tuple[list[list[int]], ...]: multiple or unique matches
@@ -575,8 +570,7 @@ def get_num_atoms_between_rgroups(**kwargs: Transformation) -> int:
         'transformation_4',
 
     Raises:
-        NotImplementedError: thrown if a case occurs, i did not think of yet.
-        pls contact me (niels.maeder@roche.com) if it is thrown.
+        NotImplementedError: thrown if a case occurs that is not implemented yet.
 
     Returns:
         int: number of atoms between r groups.

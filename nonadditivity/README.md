@@ -3,7 +3,7 @@
 This is the core code for the nonadditivity analysis package.
 Below, see a list of which file handles which part of the functionality.
 
-The whole analysis uses [Pandas Dataframes](https://pandas.pydata.org/) to make both the code and its extension as clear as possible.
+The whole analysis uses [Pandas Dataframes](https://pandas.pydata.org/).
 
 ## what is where
 
