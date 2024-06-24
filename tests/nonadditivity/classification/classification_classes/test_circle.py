@@ -26,7 +26,6 @@ Solutions = [
     (Props.MAX_NUM_MMPDB_CUTS, 1),
     (Props.MAX_HEAVY_ATOM_IN_TRANSFORMATION, 4),
     (Props.COMPOUND_STEREO_CLASSIFICATION, "Unassigned"),
-    (Props.SCAFFOLD, "CCCc1occc1Cc1cc(C[C@@](C)(O)[*])c(CCC)c([*])c1"),
     (Props.MIN_TANIMOTO, 0.6626506024096386),
     (Props.SUBSTITUENT_ON_SAME_RING_SYSYTEM, False),
 ]

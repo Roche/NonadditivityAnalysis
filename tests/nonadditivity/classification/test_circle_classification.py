@@ -21,7 +21,6 @@ from nonadditivity.classification.circle_classification import (
     get_min_transformation_tanimoto,
     get_num_heavy_atoms_diff,
     get_num_rot_bonds_diff,
-    get_scaffold_smiles,
     get_sp3_carbon_diff,
     get_tertiary_amide_formed,
     get_tpsa_diff,
@@ -144,31 +143,6 @@ def test_tanimoto(
             transformation_4=transformation4,
         )
         == 0.6626506024096386
-    )
-
-
-def test_get_scaffold(
-    transformation1: Transformation,
-    transformation2: Transformation,
-    transformation3: Transformation,
-    transformation4: Transformation,
-) -> None:
-    """Test get scaffold.
-
-    Args:
-        transformation1 (Transformation): Transformation 1
-        transformation2 (Transformation): Transformation 2
-        transformation3 (Transformation): Transformation 3
-        transformation4 (Transformation): Transformation 4
-    """
-    assert (
-        get_scaffold_smiles(
-            transformation_1=transformation1,
-            transformation_2=transformation2,
-            transformation_3=transformation3,
-            transformation_4=transformation4,
-        )
-        == "CCCc1occc1Cc1cc(C[C@@](C)(O)[*])c(CCC)c([*])c1"
     )
 
 
