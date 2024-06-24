@@ -107,6 +107,27 @@ def input_options(paths: dict[str, Path]) -> InputOptions:
 
 
 @pytest.fixture()
+def input_options_classify(paths: dict[str, Path]) -> InputOptions:
+    return InputOptions(
+        infile_=paths["test_input"],
+        update_=False,
+        max_heavy_=70,
+        no_chiral_=False,
+        delimiter_="tab",
+        canonicalize_=True,
+        classify_=True,
+        include_censored_=False,
+        max_heavy_in_transformation_=16,
+        directory_=None,
+        series_column_=None,
+        property_columns_=("TEST_PCHEMBL_VALUE",),
+        units_=(),
+        verbose_=2,
+        log_file_=paths["temp_log_file"],
+    )
+
+
+@pytest.fixture()
 def input_options_multiprops(paths: dict[str, Path]) -> InputOptions:
     return InputOptions(
         infile_=paths["test_input"],

@@ -13,6 +13,7 @@ from tests._utils import assert_exists_and_remove, files_equal, same_size
     "inopt, solfiles",
     [
         ("input_options", ("test_naa", "test_c2c", "test_per_cpd")),
+        ("input_options_classify", ("test_naa_classify", "test_c2c_classify", "test_per_cpd_classify")),
         (
             "input_options_update",
             ("test_naa_series", "test_c2c", "test_per_cpd_series"),
