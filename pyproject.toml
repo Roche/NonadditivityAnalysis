@@ -155,7 +155,7 @@ legacy_tox_ini = """
     commands = pytest tests --run-slow --cov=nonadditivity --cov-report=term-missing
 
     [testenv:lint]
-    basepython = 3.12
+    basepython = 3.10
     deps = ruff
     commands = ruff check tests nonadditivity
 """
