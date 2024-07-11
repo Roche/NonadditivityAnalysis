@@ -97,7 +97,6 @@ lint.ignore = [
     "ANN401",  # allow any as type hint
 ]
 target-version = "py310"
-# include = ["nonadditivity", "tests"]
 exclude = [
     ".git",
     "__pycache__",
