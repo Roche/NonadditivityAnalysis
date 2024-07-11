@@ -9,31 +9,41 @@ A program to find key complex patterns in SAR data
 
 ## Installation
 
-The programm requires python >= 3.10
+The programm requires python >= 3.10.
+In your already configured environment, install NonadditivityAnalysis with
 
-first set up a conda environment with the required packages or use any ohter conda env that has at least python 3.10:
+```shell
+pip install nonadditivity
+```
+
+### Create python environment with Conda
+
+If you don't have an environment yet, you can use the provided (very minimal) conda environment file to create a valid environment.
 
 ```shell
 conda env create -n <env_name> -f environment.yaml
 conda activate <env_name>
 ```
 
-where 3.* == 3.10, 3.11 or 3.12 and <env_name> is the name of your conda environment.
-
-
-Then use the following command to install the programm.
+or simply
 
 ```shell
-pip install nonadditivity
+conda create -n <env_name> python=3.*
 ```
+with * being 10, 11, or 12.
+
+Then use the `pip install nonadditivity` to install the programm.
+
 ### Dev Mode
 
-Install the code in development mode with:
+If you want to install the package for development, some extra steps are required.
 
-```bash
+This package is managed by [Poetry](https://python-poetry.org/), so you first need to install poetry as described [here](https://python-poetry.org/docs/#installing-with-pipx).
+After that, just clone the repository and install the code with poetry.
+
+```shell
 $ git clone git+https://github.com/KramerChristian/NonadditivityAnalysis.git
 $ cd NonadditivityAnalysis
-$ pip install poetry
 $ poetry install
 ```
 
