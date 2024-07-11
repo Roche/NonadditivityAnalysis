@@ -1,4 +1,5 @@
 """Test nonadditivity.classification.utils."""
+
 import pytest
 
 from nonadditivity.classification.utils import (

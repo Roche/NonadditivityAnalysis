@@ -1,4 +1,5 @@
 """Math utils for the Nonadditivity Analysis package."""
+
 from collections.abc import Sequence
 from typing import Any
 

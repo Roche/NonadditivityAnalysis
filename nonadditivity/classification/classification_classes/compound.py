@@ -3,6 +3,7 @@
 Holds Class for Describing Properties on a compound Level.
 This is used for the NonadditivityAnalysis Package.
 """
+
 from collections.abc import Callable
 from enum import Enum, auto
 from typing import ClassVar

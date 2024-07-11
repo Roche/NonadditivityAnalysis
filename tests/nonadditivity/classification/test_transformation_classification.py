@@ -1,4 +1,5 @@
 """Test nonadditivty.classification.transformation_classification."""
+
 from collections.abc import Callable
 
 import pytest

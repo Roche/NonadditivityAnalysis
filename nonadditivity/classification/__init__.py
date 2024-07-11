@@ -1,4 +1,5 @@
 """Implements dtc classification in nonadditivity package."""
+
 from nonadditivity.classification.classification_classes.circle import Circle
 from nonadditivity.classification.classification_classes.compound import Compound
 from nonadditivity.classification.classification_classes.transfromation import (

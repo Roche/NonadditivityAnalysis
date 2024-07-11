@@ -61,10 +61,13 @@ def files_equal(path1: Path | str, path2: Path | str) -> bool:
     Returns:
         bool: wheter both files are the same
     """
-    with open(path1, encoding="utf-8") as file_1, open(
-        path2,
-        encoding="utf=-8",
-    ) as file_2:
+    with (
+        open(path1, encoding="utf-8") as file_1,
+        open(
+            path2,
+            encoding="utf=-8",
+        ) as file_2,
+    ):
         lines_f1, lines_f2 = file_1.readlines(), file_2.readlines()
         for line_1, line_2 in zip(lines_f1, lines_f2):
             if line_1 != line_2:

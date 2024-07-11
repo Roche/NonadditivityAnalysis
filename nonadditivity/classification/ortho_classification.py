@@ -4,6 +4,7 @@ Conains the code that manages the classification of ortho effects over
 all the compound, transformation and circle level of the classification
 workflow of the Nonadditivity Analysis.
 """
+
 from __future__ import annotations
 
 from typing import TYPE_CHECKING

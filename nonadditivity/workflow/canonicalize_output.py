@@ -4,6 +4,7 @@ Helper Module that canonicalizes output files in a way,
 that there are no more transformations in the output,
 that are the reverse of another transformation.
 """
+
 import contextlib
 
 import pandas as pd

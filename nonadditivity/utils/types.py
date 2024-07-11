@@ -1,4 +1,5 @@
 """Type aliases for rdkit Molecules and Atoms."""
+
 from typing import TypeAlias
 
 from rdkit.Chem import rdchem

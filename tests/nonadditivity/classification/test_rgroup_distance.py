@@ -1,4 +1,5 @@
 """Test nonadditivity.classification.rgroup_distance."""
+
 import pytest
 from rdkit import Chem
 

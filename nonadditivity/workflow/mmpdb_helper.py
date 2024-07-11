@@ -1,6 +1,5 @@
 """Python wrapper for the mmpdblib code that is used in this package."""
 
-
 import shlex
 import subprocess
 from collections.abc import Generator

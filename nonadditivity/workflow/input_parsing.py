@@ -3,6 +3,7 @@
 The Functions in this file handle all the file reading and input parsing for the
 NonadditivityAnalysis package.
 """
+
 import os.path
 from collections.abc import Sequence
 from pathlib import Path

@@ -183,8 +183,7 @@ def get_num_sp3_carbons(**kwargs: Molecule) -> int:
         list[float]: fraction of sp3 carbons
     """
     return sum(
-        a.GetHybridization() == Chem.HybridizationType.SP3
-        and a.GetSymbol() == "C"  # pylint: disbale=E1101
+        a.GetHybridization() == Chem.HybridizationType.SP3 and a.GetSymbol() == "C"  # pylint: disbale=E1101
         for a in kwargs["molecule"].GetAtoms()
     )
 

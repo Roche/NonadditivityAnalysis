@@ -1,4 +1,5 @@
 """Testing nonadditivity.workflows.mmpdb_helper."""
+
 import filecmp
 from pathlib import Path
 

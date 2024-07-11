@@ -4,6 +4,7 @@ This file handles all the commandline input parsing for
 the NonadditivityAnalysis package using click.
 
 """
+
 import logging
 import os
 from collections.abc import Callable

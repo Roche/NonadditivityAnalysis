@@ -3,6 +3,7 @@
 Implements all the classification functions called in classification_classes:Circle
 that are not responsible for the ortho or the r group distance classification.
 """
+
 from __future__ import annotations
 
 from collections.abc import Iterable

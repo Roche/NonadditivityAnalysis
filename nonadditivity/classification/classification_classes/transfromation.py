@@ -3,6 +3,7 @@
 Holds Class for Describing Properties on a Transformation Level.
 This is used for the NonadditivityAnalysis Package.
 """
+
 from __future__ import annotations
 
 from enum import Enum, auto

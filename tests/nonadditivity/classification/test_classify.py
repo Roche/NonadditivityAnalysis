@@ -1,4 +1,5 @@
 """Test nonadditivity.classification.classify."""
+
 import pandas as pd
 import pytest
 from rdkit import Chem
@@ -53,7 +54,8 @@ def cpd_dict(per_cpd_dataframe: pd.DataFrame) -> dict[str, Compound]:
         dict[str, Compound]: id -> Compound
     """
     per_cpd_dataframe["RDKit_Molecules"] = [
-        Chem.MolFromSmiles(sm) for sm in per_cpd_dataframe.SMILES.to_numpy()  # type: ignore pylint:disable=E1101
+        Chem.MolFromSmiles(sm)
+        for sm in per_cpd_dataframe.SMILES.to_numpy()  # type: ignore pylint:disable=E1101
     ]
     return _create_compound_dict(per_compound_dataframe=per_cpd_dataframe)
 
@@ -65,7 +67,8 @@ def test_create_compound_dict(per_cpd_dataframe: pd.DataFrame) -> None:
         per_cpd_dataframe (pd.DataFrame): per compound data
     """
     per_cpd_dataframe["RDKit_Molecules"] = [
-        Chem.MolFromSmiles(sm) for sm in per_cpd_dataframe.SMILES.to_numpy()  # type: ignore pylint:disable=E1101
+        Chem.MolFromSmiles(sm)
+        for sm in per_cpd_dataframe.SMILES.to_numpy()  # type: ignore pylint:disable=E1101
     ]
     cpd = _create_compound_dict(per_compound_dataframe=per_cpd_dataframe)
     for key, value in cpd.items():

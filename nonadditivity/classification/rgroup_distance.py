@@ -5,6 +5,7 @@ r groups of a double transformation cycle over all levels (compound,
 transformation and circle). This is part of the classification workflow
 of the Nonadditivity Analysis.
 """
+
 from __future__ import annotations
 
 import contextlib

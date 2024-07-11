@@ -1,4 +1,5 @@
 """Test nonadditivity.classification.circle_classification."""
+
 from collections.abc import Callable
 
 import pytest

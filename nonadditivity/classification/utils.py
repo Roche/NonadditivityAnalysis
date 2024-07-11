@@ -1,4 +1,5 @@
 """Utilitary functions for the classification workflow."""
+
 from collections.abc import Sequence
 
 from rdkit import Chem

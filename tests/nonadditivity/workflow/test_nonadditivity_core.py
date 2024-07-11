@@ -1,4 +1,5 @@
 """Test nonadditivity.workflows.nonadditivity_core."""
+
 from pathlib import Path
 
 import numpy as np

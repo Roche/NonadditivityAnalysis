@@ -1,4 +1,5 @@
 """Test nonadditivity.classification.ortho_classification."""
+
 import pytest
 from rdkit import Chem
 

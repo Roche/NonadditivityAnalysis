@@ -3,6 +3,7 @@
 Classification submodule of the NonadditivityAnalysis module. All Functions and objects
 used here are higly specific. Don't use them on their own.
 """
+
 import pandas as pd
 from tqdm.auto import tqdm
 

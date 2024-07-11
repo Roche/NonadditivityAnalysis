@@ -520,12 +520,14 @@ def calculate_na_output(
     c2c_vals["circle_ids"] = [i for i in na_vals["Circle_ID"] for _ in range(4)]
     if series_column:
         na_vals["Series"] = [
-            per_compound_dataframe.loc[circle[0], "Series"]
-            if _is_same_series(
-                per_compound_dataframe=per_compound_dataframe,
-                circle=circle,
+            (
+                per_compound_dataframe.loc[circle[0], "Series"]
+                if _is_same_series(
+                    per_compound_dataframe=per_compound_dataframe,
+                    circle=circle,
+                )
+                else ""
             )
-            else ""
             for circle in randomized_circles
         ]
     else:
@@ -609,32 +611,41 @@ def add_mean_and_std_na_to_df(
         )
         if series_column:
             per_compound_dataframe[f"{property_column}_Nonadditivity_Pure"] = [
-                value[0] for value in per_compound_values[0]  # type: ignore
+                value[0]
+                for value in per_compound_values[0]  # type: ignore
             ]
             per_compound_dataframe[f"{property_column}_Nonadditivity_Pure_SD"] = [
-                value[1] for value in per_compound_values[0]  # type: ignore
+                value[1]
+                for value in per_compound_values[0]  # type: ignore
             ]
             per_compound_dataframe[f"{property_column}_Nonadditivity_Pure_Count"] = [
-                value[2] for value in per_compound_values[0]  # type: ignore
+                value[2]
+                for value in per_compound_values[0]  # type: ignore
             ]
             per_compound_dataframe[f"{property_column}_Nonadditivity_Mixed"] = [
-                value[0] for value in per_compound_values[1]  # type: ignore
+                value[0]
+                for value in per_compound_values[1]  # type: ignore
             ]
             per_compound_dataframe[f"{property_column}_Nonadditivity_Mixed_SD"] = [
-                value[1] for value in per_compound_values[1]  # type: ignore
+                value[1]
+                for value in per_compound_values[1]  # type: ignore
             ]
             per_compound_dataframe[f"{property_column}_Nonadditivity_Mixed_Count"] = [
-                value[2] for value in per_compound_values[1]  # type: ignore
+                value[2]
+                for value in per_compound_values[1]  # type: ignore
             ]
         else:
             per_compound_dataframe[f"{property_column}_Nonadditivity"] = [
-                value[0] for value in per_compound_values  # type: ignore
+                value[0]
+                for value in per_compound_values  # type: ignore
             ]
             per_compound_dataframe[f"{property_column}_Nonadditivity_SD"] = [
-                value[1] for value in per_compound_values  # type: ignore
+                value[1]
+                for value in per_compound_values  # type: ignore
             ]
             per_compound_dataframe[f"{property_column}_Nonadditivity_Count"] = [
-                value[2] for value in per_compound_values  # type: ignore
+                value[2]
+                for value in per_compound_values  # type: ignore
             ]
 
 

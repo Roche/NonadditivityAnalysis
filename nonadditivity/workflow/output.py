@@ -1,4 +1,5 @@
 """Handle output writing for the NonadditivityAnalysis package."""
+
 from pathlib import Path
 
 import numpy as np

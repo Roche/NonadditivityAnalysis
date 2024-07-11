@@ -1,4 +1,5 @@
 """Test nonadditivity.workflows.input_parsing."""
+
 import os
 from pathlib import Path
 

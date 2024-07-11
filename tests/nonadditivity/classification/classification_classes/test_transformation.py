@@ -1,4 +1,5 @@
 """Test nonadditivity.classification.classifcation_classes.transformation."""
+
 import pytest
 
 from nonadditivity.classification import Compound, Transformation

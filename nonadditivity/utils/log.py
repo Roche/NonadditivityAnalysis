@@ -1,4 +1,5 @@
 """Logging submodule for the nonadditivity analysis code."""
+
 import logging
 import sys
 from collections.abc import Callable

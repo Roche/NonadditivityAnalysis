@@ -1,4 +1,5 @@
 """Test versioning."""
+
 from importlib.metadata import version
 
 import nonadditivity

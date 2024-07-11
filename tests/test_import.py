@@ -1,4 +1,5 @@
 """Testing whether nonadditivity can be inported correctly."""
+
 import sys
 
 import nonadditivity  # noqa: F401

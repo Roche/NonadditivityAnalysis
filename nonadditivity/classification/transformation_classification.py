@@ -3,6 +3,7 @@
 All these functions are higly specific, do not use them outside
 of their intended application.
 """
+
 import contextlib
 from collections.abc import Callable
 from typing import TYPE_CHECKING
@@ -71,10 +72,13 @@ def _tertiary_nitrogen_generated(**kwargs) -> int:
     for val in (-1, 0):
         if any(is_unique(a) == val for a in (anchor_1_idxs, anchor_2_idxs)):
             return val
-    anchor_1_atom, anchor_2_atom = molecule_1.GetAtomWithIdx(
-        anchor_1_idxs[0],
-    ), molecule_2.GetAtomWithIdx(
-        anchor_2_idxs[0],
+    anchor_1_atom, anchor_2_atom = (
+        molecule_1.GetAtomWithIdx(
+            anchor_1_idxs[0],
+        ),
+        molecule_2.GetAtomWithIdx(
+            anchor_2_idxs[0],
+        ),
     )
     if (
         any(a.GetIsAromatic() for a in (anchor_1_atom, anchor_2_atom))

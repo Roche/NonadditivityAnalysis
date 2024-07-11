@@ -1,4 +1,5 @@
 """Test nonaddicitivity.workfow.canonicalize_output."""
+
 import pandas as pd
 import pytest
 from rdkit import Chem

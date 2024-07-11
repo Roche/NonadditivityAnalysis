@@ -1,4 +1,5 @@
 """Configuring test environment for nonadditivity analysis package."""
+
 from collections.abc import Sequence
 
 import pytest
