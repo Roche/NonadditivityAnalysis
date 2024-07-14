@@ -7,7 +7,7 @@ of their intended application.
 """
 
 from rdkit import Chem, DataStructs
-from rdkit.Chem import AllChem, Crippen, GraphDescriptors, rdMolDescriptors
+from rdkit.Chem import Crippen, GraphDescriptors, rdMolDescriptors
 
 from nonadditivity.utils.types import Molecule
 
@@ -246,7 +246,7 @@ def get_morgan_fp(
     Returns:
         DataStructs.cDataStructs.UIntSparseIntVect: MorganFP with radius 2
     """
-    return AllChem.GetMorganFingerprint(  # type: ignore pylint:disable=E1101
-        kwargs["molecule"],
-        2,
+    return rdMolDescriptors.GetMorganFingerprint(  # type: ignore pylint:disable=E1101
+        mol=kwargs["molecule"],
+        radius=2,
     )

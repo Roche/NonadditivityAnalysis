@@ -184,14 +184,14 @@ def get_min_transformation_tanimoto(**kwargs: Transformation) -> float:
     return min(
         np.mean(
             [
-                t2.get_property(t2.Properties.ECFP4_SIMILARITY),
-                t3.get_property(t3.Properties.ECFP4_SIMILARITY),
+                t2.get_property(t2.Properties.MFP2_SIMILARITY),
+                t3.get_property(t3.Properties.MFP2_SIMILARITY),
             ],
         ),
         np.mean(
             [
-                t1.get_property(t1.Properties.ECFP4_SIMILARITY),
-                t4.get_property(t4.Properties.ECFP4_SIMILARITY),
+                t1.get_property(t1.Properties.MFP2_SIMILARITY),
+                t4.get_property(t4.Properties.MFP2_SIMILARITY),
             ],
         ),
     )

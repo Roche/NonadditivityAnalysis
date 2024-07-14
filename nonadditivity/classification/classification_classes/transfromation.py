@@ -52,7 +52,7 @@ class Transformation:
         ORTHO_SUBSTITUENT_INTRODUCED = auto()
         TERTIARY_AMIDE_FORMED = auto()
         TRANSFORMATION_STEREO = auto()
-        ECFP4_SIMILARITY = auto()
+        MFP2_SIMILARITY = auto()
         NUM_MMPDB_CUTS = auto()
 
     classification_function: ClassVar[dict[Properties, Callable]] = {
@@ -63,7 +63,7 @@ class Transformation:
         Properties.ORTHO_SUBSTITUENT_INTRODUCED: ortho_substituent_introduced,
         Properties.TERTIARY_AMIDE_FORMED: tertiary_amide_generated,
         Properties.TRANSFORMATION_STEREO: stereo_classify_transformation,
-        Properties.ECFP4_SIMILARITY: calculate_fp_similarity,
+        Properties.MFP2_SIMILARITY: calculate_fp_similarity,
         Properties.NUM_MMPDB_CUTS: get_num_cuts,
     }
 
@@ -75,7 +75,7 @@ class Transformation:
         Properties.ORTHO_SUBSTITUENT_INTRODUCED: "ortho_substituent_introduced",
         Properties.TRANSFORMATION_STEREO: "transformation_stere_classification",
         Properties.TERTIARY_AMIDE_FORMED: "tertiary_amide_formed",
-        Properties.ECFP4_SIMILARITY: "ecfp_4_similarity",
+        Properties.MFP2_SIMILARITY: "mfp_2_similarity",
         Properties.NUM_MMPDB_CUTS: "num_mmpdb_cuts",
     }
 

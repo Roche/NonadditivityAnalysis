@@ -229,7 +229,7 @@ def get_num_heavy_atoms_rgroups(**kwargs: str) -> list[int]:
 
 
 def calculate_fp_similarity(**kwargs) -> float:
-    """Calculate Tanimoto of Morgan fingerprints of compounds in transformation.
+    """Calculate Tanimoto of Morgan fingerprints (2) of compounds in transformation.
 
     use keyword argument 'compounds' for this function to work.
 
