@@ -84,7 +84,12 @@ def test_get_props() -> None:
         "num_atoms_between_r_groups",
     ):
         solution.remove(rem)
-    solution = ["num_atoms_between_r_groups", "ortho_classification", *solution]
+    solution = [
+        "num_atoms_between_r_groups",
+        "ortho_classification",
+        *solution,
+        "classification",
+    ]
     assert _get_props() == solution
 
 

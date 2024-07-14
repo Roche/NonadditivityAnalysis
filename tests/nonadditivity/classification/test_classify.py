@@ -12,6 +12,7 @@ from nonadditivity.classification.classify import (
     _create_compound_dict,
     _get_na_compounds,
     _get_transformations_for_na_dataframe,
+    _is_surprisingly_nonadditive,
     _update_na_dataframe,
     _update_per_compound_dataframe,
     classify,
@@ -37,7 +38,7 @@ Solutions = [
     (Props.HAS_INVERSION_IN_TRANSFORMATION, "None"),
     (Props.MAX_NUM_MMPDB_CUTS, 1),
     (Props.MAX_HEAVY_ATOM_IN_TRANSFORMATION, 4),
-    (Props.COMPOUND_STEREO_CLASSIFICATION, "Unassigned"),
+    (Props.COMPOUND_STEREO_CLASSIFICATION, "Assigned"),
     (Props.MIN_TANIMOTO, 0.6626506024096386),
     (Props.SUBSTITUENT_ON_SAME_RING_SYSYTEM, False),
 ]
@@ -277,6 +278,33 @@ def test_classify_circle_special(
         index = int("atoms" in prop)
         assert result[index] == result
     assert result == [solution]
+
+
+@pytest.mark.parametrize(
+    "fixture_name, solution",
+    [
+        ("circle", True),
+        ("circle_2", True),
+        ("ortho_none_circle", False),
+        ("ortho_exchanged_circle", True),
+        ("ortho_both_circle", False),
+    ],
+)
+def test_is_surprisingly_nonadditive(
+    fixture_name: str,
+    solution: str,
+    request: pytest.FixtureRequest,
+) -> None:
+    """Test nonadditivity.classification.classify:_is_surprisingly_nonadditive.
+
+    Args:
+        fixture_name (str): fixture name
+        solution (str): expected output
+        request (pytest.FixtureRequest): pytest magic
+    """
+    circle: Circle = request.getfixturevalue(fixture_name)
+    circle.classify()
+    assert _is_surprisingly_nonadditive(circle) == solution
 
 
 @pytest.mark.parametrize(

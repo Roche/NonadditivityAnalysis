@@ -252,6 +252,37 @@ def _classify_circles(
     return classification
 
 
+def _is_surprisingly_nonadditive(circle: Circle) -> bool:
+    """Check whether a circle's nonadditivity is surprising.
+
+    Use keyword "circle" for this to work.
+
+    A circle is considered surprising i fnone of the following is true:
+    Distance between R groups ≤ 2 atoms
+    Tanimoto similarity of the transformation < 0.4
+    Number of exchanged heavy atoms > 10
+    Linker exchange transformations
+    Transformations with unassigned or inverted stereocenters
+
+    Args:
+        circle (Circle): circle to check.
+
+    Returns:
+        bool: True if surprising false if Mundane.
+    """
+    if circle.get_property(Circle.Properties.DISTANCE_BETWEEN_R_GROUPS) <= 2:
+        return False
+    if circle.get_property(Circle.Properties.MIN_TANIMOTO) < 0.4:
+        return False
+    if circle.get_property(Circle.Properties.NUM_HEAVY_ATOMS_DIFF) > 10:
+        return False
+    if circle.get_property(Circle.Properties.MAX_NUM_MMPDB_CUTS) > 1:
+        return False
+    return (
+        circle.get_property(Circle.Properties.HAS_INVERSION_IN_TRANSFORMATION) == "None"
+    )
+
+
 def _update_na_dataframe(
     na_dataframe: pd.DataFrame,
     circles: list[Circle],
@@ -294,6 +325,9 @@ def _update_na_dataframe(
         circles=circles,
         property_key=props.DISTANCE_BETWEEN_R_GROUPS,
     )
+    na_dataframe["classification"] = [
+        "surprising" if _is_surprisingly_nonadditive(c) else "mundane" for c in circles
+    ]
 
 
 def classify_circles(

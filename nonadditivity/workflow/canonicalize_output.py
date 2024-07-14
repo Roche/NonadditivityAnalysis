@@ -91,11 +91,15 @@ def _get_props() -> list[str]:
     Returns:
         list[str]: list of descripytion keys
     """
-    return ["num_atoms_between_r_groups", "ortho_classification"] + [
-        val
-        for val in Circle.classification_keys.values()
-        if "ortho" not in val and "between" not in val
-    ]
+    return (
+        ["num_atoms_between_r_groups", "ortho_classification"]
+        + [
+            val
+            for val in Circle.classification_keys.values()
+            if "ortho" not in val and "between" not in val
+        ]
+        + ["classification"]
+    )
 
 
 def _add_to_dict(
@@ -215,7 +219,6 @@ def canonicalize_na_dataframe(
             columns=[
                 "has_transformation_at_ortho",
                 "has_ortho_substituent_introduced",
-                "bonds_atoms_between_r_groups",
             ],
         )
     except KeyError:
