@@ -177,8 +177,6 @@ def num_stereocenters_change(**kwargs) -> bool:
             includeUnassigned=True,
             useLegacyImplementation=False,
         ),
-    ) and is_h_replaced(
-        **kwargs,
     )
 
 
