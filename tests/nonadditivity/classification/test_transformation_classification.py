@@ -12,7 +12,6 @@ from nonadditivity.classification.transformation_classification import (
     get_num_cuts,
     get_num_heavy_atoms_rgroups,
     is_h_replaced,
-    num_stereocenters_change,
     stereo_classify_transformation,
     tertiary_amide_generated,
 )
@@ -110,55 +109,6 @@ def test_tertiary_nitrogen(
             )
             == 0
         )
-
-
-def test_num_stereocenters_change(
-    compound1: Compound,
-    compound2: Compound,
-    compound3: Compound,
-    compound4: Compound,
-    transformation_smarts1: str,
-    transformation_smarts2: str,
-) -> None:
-    """Test ...:num_stereocenters_change.
-
-    Args:
-        compound1 (Compound): Test input compound 1
-        compound2 (Compound): Test input compound 2
-        compound3 (Compound): Test input compound 3
-        compound4 (Compound): Test input compound 4
-        transformation_smarts1 (str): test input smarts
-        transformation_smarts2 (str): test input smarts
-    """
-    raises_exceptions(
-        test_object=4,
-        function=num_stereocenters_change,
-        exception=AttributeError,
-        compounds=["wrong_type", 3],
-    )
-    assert not num_stereocenters_change(
-        compounds=[compound1, compound2],
-        transformation_smarts=transformation_smarts1,
-    )
-    assert not num_stereocenters_change(
-        compounds=[compound4, compound3],
-        transformation_smarts=transformation_smarts1,
-    )
-    assert num_stereocenters_change(
-        compounds=[compound1, compound4],
-        transformation_smarts=transformation_smarts2,
-    )
-    assert num_stereocenters_change(
-        compounds=[compound2, compound3],
-        transformation_smarts=transformation_smarts2,
-    )
-    assert num_stereocenters_change(
-        compounds=[
-            Compound(Chem.MolFromSmiles("C(Cl)(F)Br"), "", ""),
-            Compound(Chem.MolFromSmiles("C(Cl)(F)F"), "", ""),
-        ],
-        transformation_smarts="[*:1]Br>>[*:1]F",
-    )
 
 
 @pytest.mark.parametrize(

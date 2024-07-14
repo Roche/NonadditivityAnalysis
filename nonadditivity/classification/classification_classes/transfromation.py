@@ -22,7 +22,6 @@ from nonadditivity.classification.transformation_classification import (
     get_num_cuts,
     get_num_heavy_atoms_rgroups,
     is_h_replaced,
-    num_stereocenters_change,
     stereo_classify_transformation,
     tertiary_amide_generated,
 )
@@ -46,7 +45,6 @@ class Transformation:
         """Enumerates type of compound classifications."""
 
         IS_H_REPLACED = auto()
-        NUM_STEREOCENTERS_CHANGE = auto()
         NUM_HEAVY_ATOMS_IN_RGROUPS = auto()
         ORTHO_SUBSTITUENT_CHANGES = auto()
         ORTHO_SUBSTITUENT_INTRODUCED = auto()
@@ -57,7 +55,6 @@ class Transformation:
 
     classification_function: ClassVar[dict[Properties, Callable]] = {
         Properties.IS_H_REPLACED: is_h_replaced,
-        Properties.NUM_STEREOCENTERS_CHANGE: num_stereocenters_change,
         Properties.NUM_HEAVY_ATOMS_IN_RGROUPS: get_num_heavy_atoms_rgroups,
         Properties.ORTHO_SUBSTITUENT_CHANGES: ortho_substituent_exchanged,
         Properties.ORTHO_SUBSTITUENT_INTRODUCED: ortho_substituent_introduced,
@@ -69,7 +66,6 @@ class Transformation:
 
     classification_keys: ClassVar[dict[Properties, str]] = {
         Properties.IS_H_REPLACED: "h_replaced",
-        Properties.NUM_STEREOCENTERS_CHANGE: "creates_stereocenter",
         Properties.NUM_HEAVY_ATOMS_IN_RGROUPS: "num_heavy_atoms_rgroups",
         Properties.ORTHO_SUBSTITUENT_CHANGES: "ortho_substituent_exchanged",
         Properties.ORTHO_SUBSTITUENT_INTRODUCED: "ortho_substituent_introduced",

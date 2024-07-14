@@ -8,7 +8,6 @@ Props = Transformation.Properties
 
 solutions = [
     (Props.IS_H_REPLACED, True),
-    (Props.NUM_STEREOCENTERS_CHANGE, True),
     (Props.NUM_HEAVY_ATOMS_IN_RGROUPS, [0, 4]),
     (Props.NUM_MMPDB_CUTS, 1),
     (Props.TERTIARY_AMIDE_FORMED, False),

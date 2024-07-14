@@ -86,7 +86,7 @@ class Compound:
 
     classification_keys: ClassVar[dict[Properties, str]] = {
         Properties.NUM_HEAVY_ATOMS: "num_heavy_atoms",
-        Properties.NUM_STERO_CENTERS: "num_stereocenters",
+        Properties.NUM_STERO_CENTERS: "num_stereo_centers",
         Properties.NUM_ORTHO_CONFIGURATIONS: "num_ortho_configurations",
         Properties.ORTHO_INDICES: "ortho_indices",
         Properties.AROMATIC_INDICES: "aromatic_indices",

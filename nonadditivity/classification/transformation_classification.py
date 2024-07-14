@@ -151,35 +151,6 @@ def stereo_classify_transformation(**kwargs) -> int:
     return 0
 
 
-def num_stereocenters_change(**kwargs) -> bool:
-    """Check whether number of stereocenters changes in transformation.
-
-    Returns true if Number of stereocenters changes during the
-    investigated transformation.
-
-    use keyword argument 'compounds' for it to work.
-
-    Returns:
-        bool: True if num stereocenter changes
-    """
-    compound_1, compound_2 = kwargs["compounds"]
-    return len(
-        Chem.FindMolChiralCenters(
-            compound_1.rdkit_molecule,
-            force=True,
-            includeUnassigned=True,
-            useLegacyImplementation=False,
-        ),
-    ) != len(
-        Chem.FindMolChiralCenters(
-            compound_2.rdkit_molecule,
-            force=True,
-            includeUnassigned=True,
-            useLegacyImplementation=False,
-        ),
-    )
-
-
 def _get_phys_chem_property(
     function: Callable[[Molecule], float],
     **kwargs,

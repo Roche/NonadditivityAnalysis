@@ -85,7 +85,7 @@ def test_create_compound_dict(per_cpd_dataframe: pd.DataFrame) -> None:
 @pytest.mark.parametrize(
     "column, solution",
     [
-        ("num_stereocenters", [0 for _ in range(8)]),
+        ("num_stereo_centers", [0 for _ in range(8)]),
         ("has_unassigned_stereocenters", [False for _ in range(8)]),
     ],
 )
@@ -113,7 +113,7 @@ def test_update_per_compound_dataframe(
 @pytest.mark.parametrize(
     "column, solution",
     [
-        ("num_stereocenters", [0 for _ in range(8)]),
+        ("num_stereo_centers", [0 for _ in range(8)]),
         ("has_unassigned_stereocenters", [False for _ in range(8)]),
     ],
 )

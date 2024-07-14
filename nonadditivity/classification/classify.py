@@ -83,7 +83,7 @@ def classify_compounds(
     """Classify all compounds in per compound dataframe and create compound instances.
 
     Creates Compound objects for every entry in the per_compound_dataframe and adds
-    columns "num_stereo_centers" and "num_ortho_patterns to the per_compound_dataframe.
+    columns "num_stereocenters" and "num_ortho_patterns to the per_compound_dataframe.
 
     Args:
         per_compound_dataframe (pd.DataFrame): df containing compounds
