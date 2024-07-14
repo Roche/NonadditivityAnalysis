@@ -59,12 +59,12 @@ def compound_smiles2() -> str:
 
 @pytest.fixture()
 def compound_smiles3() -> str:
-    return "CCCc1c(CC(O)C)cc(Cc2ccoc2CCC)cc1C[C@@](C)(O)F"
+    return "CCCc1c(C[C@H](O)C)cc(Cc2ccoc2CCC)cc1C[C@@](C)(O)F"
 
 
 @pytest.fixture()
 def compound_smiles4() -> str:
-    return "CCCc1c(CC(O)C)cc(Cc2ccoc2CCC)cc1C[C@@](C)(O)Cl"
+    return "CCCc1c(C[C@H](O)C)cc(Cc2ccoc2CCC)cc1C[C@@](C)(O)Cl"
 
 
 @pytest.fixture()
@@ -93,6 +93,11 @@ def no_stereo_mol() -> Molecule:
 
 
 @pytest.fixture()
+def unassigned_stereo_mol() -> Molecule:
+    return Chem.MolFromSmiles("CC(Cl)(F)CCC")
+
+
+@pytest.fixture()
 def constant_smarts1() -> str:
     return "[*:1][C@](C)(O)Cc1cc(Cc2ccoc2CCC)ccc1CCC"
 
@@ -109,7 +114,7 @@ def constant_smarts3() -> str:
 
 @pytest.fixture()
 def constant_smarts4() -> str:
-    return "[*:1][C@](C)(O)Cc1cc(Cc2ccoc2CCC)cc(CC(O)C)c1CCC"
+    return "[*:1][C@](C)(O)Cc1cc(Cc2ccoc2CCC)cc(C[C@H](O)C)c1CCC"
 
 
 @pytest.fixture()
@@ -139,7 +144,7 @@ def transformation_smarts1() -> str:
 
 @pytest.fixture()
 def transformation_smarts2() -> str:
-    return "[*:1][H]>>[*:1]CC(C)O"
+    return "[*:1][H]>>[*:1]C[C@H](C)O"
 
 
 @pytest.fixture()

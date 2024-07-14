@@ -86,7 +86,7 @@ def test_rdkit_deltas(
 @pytest.mark.parametrize(
     "func, sol",
     [
-        (get_compound_stereocenter_classification, "Unassigned"),
+        (get_compound_stereocenter_classification, "Assigned"),
         (circle_has_stereoinversion_in_transformation, "None"),
         (get_tertiary_amide_formed, "False"),
         (get_max_num_heavy_atom_in_transformation, 4),

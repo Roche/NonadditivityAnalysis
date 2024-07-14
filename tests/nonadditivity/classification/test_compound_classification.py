@@ -134,8 +134,7 @@ def test_morganfp(compound_molecule1: Molecule) -> None:
         ("no_stereo_mol", False),
         ("compound_molecule1", False),
         ("compound_molecule2", False),
-        ("compound_molecule3", True),
-        ("compound_molecule4", True),
+        ("unassigned_stereo_mol", True),
     ],
 )
 def test_stereochemistry(

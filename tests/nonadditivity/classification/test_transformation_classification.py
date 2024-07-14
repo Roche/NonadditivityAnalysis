@@ -152,6 +152,13 @@ def test_num_stereocenters_change(
         compounds=[compound2, compound3],
         transformation_smarts=transformation_smarts2,
     )
+    assert num_stereocenters_change(
+        compounds=[
+            Compound(Chem.MolFromSmiles("C(Cl)(F)Br"), "", ""),
+            Compound(Chem.MolFromSmiles("C(Cl)(F)F"), "", ""),
+        ],
+        transformation_smarts="[*:1]Br>>[*:1]F",
+    )
 
 
 @pytest.mark.parametrize(

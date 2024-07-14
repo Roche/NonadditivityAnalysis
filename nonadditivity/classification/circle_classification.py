@@ -14,7 +14,10 @@ import numpy as np
 from nonadditivity.classification.utils import is_unique
 
 if TYPE_CHECKING:
-    from nonadditivity.classification import Compound, Transformation
+    from nonadditivity.classification import (
+        Compound,
+        Transformation,
+    )
     from nonadditivity.utils.types import Molecule
 
 
@@ -88,7 +91,7 @@ def get_compound_stereocenter_classification(**kwargs: Transformation) -> str:
         return "None"
     return (
         "Unassigned"
-        if _any_compound_has_property(prop.NUM_STERO_CENTERS, **kwargs)
+        if _any_compound_has_property(prop.HAS_UNASSIGNED_STEREOCENTERS, **kwargs)
         else "Assigned"
     )
 
