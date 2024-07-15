@@ -1,0 +1,149 @@
+[tool.poetry]
+name = "nonadditivity"
+description = "A program to find key complex patterns in SAR data"
+version = "2.0.0"
+authors = [
+    "Dr. Christian Kramer <christian.kramer@roche.com>",
+    "Dr. Laura Guasch <laura.guasch@roche.com>",
+    "Niels Maeder <niels.maeder@phys.chem.ethz.ch>",
+]
+maintainers = [
+    "Dr. Laura Guasch <laura.guasch@roche.com>",
+    "Niels Maeder <niels.maeder@phys.chem.ethz.ch>",
+]
+license = "LICENSE"
+readme = "README.md"
+keywords = ["SAR", "Cheminformatics", "MMP", "RDKit", "Nonadditivity"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Framework :: Pytest",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Chemistry",
+]
+packages = [{ include = "nonadditivity" }]
+repository = "https://github.com/Roche/NonadditivityAnalysis"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/Roche/NonadditivityAnalysis/issues"
+"Source Code" = "https://github.com/Roche/NonadditivityAnalysis/"
+
+[tool.poetry.scripts]
+nonadditivity = "nonadditivity.cli:main"
+
+[tool.poetry.dependencies]
+python = ">3.9,<3.13"
+tqdm = ">=4.65.0"
+numpy = ">=1.26.0"
+pandas = ">=2.1.1"
+click = ">=8.0.0"
+mmpdb = "==2.1"
+rdkit = ">=2023.9.1"
+ujson = ">=5.8.0"
+scipy = ">=1.12.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.4.0"
+pytest-cov = ">=4.0.0"
+pre-commit = ">=2.20.0"
+ruff = ">=0.0.292"
+tox = ">=4.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.report]
+exclude_also = ["if TYPE_CHECKING:"]
+
+
+[tool.ruff]
+lint.select = [
+    "A",   # builtins
+    "B",   # bugbear
+    "D",   # pydocstyle
+    "E",   # pycodestyle error
+    "F",   # pyflakes
+    "I",   #isort
+    "PD",  # pandas vet
+    "PL",  # pylint
+    "RUF", # ruff specific
+    "UP",  # pyupgrade
+    "W",   # pycodestyle warning
+    "N",   # naming
+    "ANN", # annotations
+    "C4",  #
+    "FA",  # future-annotations
+    "SIM", # simplify
+    "PT",  # pytest-style
+    "TCH", # type-checking
+]
+lint.ignore = [
+    "B905",    # zip is never used where objects could have different length
+    "PLR0911", # too many return statements
+    "PLR0913", # too many arguments to function call
+    "PLR2004", # magic numbers
+    "PT006",   # pytest-style
+    "PT011",   # raises too broad
+    "ANN002",  # missing types for *args ok
+    "ANN003",  # missing types for **kwargs ok
+    "ANN101",  # self type annoataions
+    "ANN401",  # allow any as type hint
+]
+target-version = "py310"
+exclude = [
+    ".git",
+    "__pycache__",
+    "docs",
+    "examples",
+    ".vscode",
+    ".idea",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".eggs",
+]
+fix = true
+lint.fixable = ["I"]
+line-length = 88
+
+[tool.ruff.lint.per-file-ignores]
+"*/__init__.py" = ["F401"]
+"nonadditivity/classification/classification_classes/circle.py" = ["E501"]
+
+[tool.ruff.lint.pycodestyle]
+max-doc-length = 88
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+
+[tool.tox]
+legacy_tox_ini = """
+    [tox]
+    min_version = 4.0.0
+    env_list =
+        py310
+        py311
+        py312
+        lint
+    labels =
+        test = py310, py311, py312
+        static = lint
+
+    [testenv]
+    deps =
+        pytest
+        pytest-cov
+    commands = pytest tests --run-slow --cov=nonadditivity --cov-report=term-missing
+
+    [testenv:lint]
+    basepython = 3.10
+    deps = ruff
+    commands = ruff check tests nonadditivity
+"""

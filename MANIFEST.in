@@ -1,0 +1,6 @@
+graft nonadditivity
+graft tests
+
+global-exclude *.py[cod] __pycache__ *.so *.dylib .DS_Store *.gpickle
+
+include README.md LICENSE

@@ -1,0 +1,6 @@
+name: nonadditivity
+channels:
+  - conda-forge
+dependencies:
+    # Base depends
+  - python > 3.9, <= 3.12

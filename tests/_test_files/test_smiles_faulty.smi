@@ -1,0 +1,7 @@
+CC=Cc1ccc(C)nc1	ID1
+CC(F)=Cc1ccc(C)nc1	ID2
+CC=C(Cl)c1ccc(C)nc1	ID3
+CC(F)=C(Cl)c1ccc(C)nc1	ID4
+CC=Cc1cnc(C)c(O)c1	ID5
+CC(F)=C(Cl)c1cnc(C)c(O)c1	ID6
+CC(F)=C(Cl)c1c(C)c(O)c1
