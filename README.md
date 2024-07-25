@@ -90,10 +90,11 @@ semicolon.
 
 If you use this code for a publication, please cite
 Kramer, C. Nonadditivity Analysis. J. Chem. Inf. Model. 2019, 59, 9, 4034–4042.
-
 <https://pubs.acs.org/doi/10.1021/acs.jcim.9b00631>
 
-Or cite Guasch et al if you are utilizing the classification module. (to be completed once the publication is accepted)
+If you are utilizing the classification module, please cite
+Guasch, L., Maeder, N., Cumming, J.G., Kramer, C. From mundane to surprising nonadditivity: drivers and impact on ML models. J Comput Aided Mol Des 38, 26 (2024).
+<https://doi.org/10.1007/s10822-024-00566-0>
 
 ------------------
 
